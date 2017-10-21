@@ -5,13 +5,12 @@ import { HttpModule } from '@angular/http';
 
 import { MaterializeModule } from 'angular2-materialize';
 import { AppRoutingModule } from './app.routing.module';
-// import { CursosModule } from './cursos/cursos.module';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './login/auth.service';
-// import { routing } from './app.routing';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -23,12 +22,9 @@ import { AuthService } from './login/auth.service';
     BrowserModule,
     FormsModule,
     HttpModule,
-    // CursosModule,
-    // AlunosModule,
     AppRoutingModule,
-    // AlunosRoutingModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
